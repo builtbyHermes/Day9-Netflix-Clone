@@ -1,0 +1,37 @@
+.row {
+  margin-bottom: 3rem;
+
+  padding-left: 3rem;
+}
+
+
+.title {
+  font-size: 1.5rem;
+
+  margin-bottom: 1rem;
+}
+
+
+.container {
+  display: flex;
+
+  gap: 1rem;
+
+  overflow-x: auto;
+
+  padding-bottom: 1rem;
+
+  scroll-behavior: smooth;
+}
+
+
+/* Hide scrollbar */
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+
+.container {
+  scrollbar-width: none;
+}

@@ -1,0 +1,103 @@
+.navbar {
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+
+  height: 70px;
+
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+
+  padding: 0 3rem;
+
+
+  z-index: 1000;
+
+
+  background: transparent;
+
+
+  transition:
+    background-color 0.3s ease;
+
+}
+
+
+
+.scrolled {
+
+  background: #000;
+
+}
+
+
+
+.logo {
+
+  color: #e50914;
+
+  font-size: 2rem;
+
+  font-weight: 800;
+
+}
+
+
+
+.links {
+
+  display: flex;
+
+  gap: 2rem;
+
+}
+
+
+
+.links a {
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 0.95rem;
+
+}
+
+
+
+.actions {
+
+  display: flex;
+
+  gap: 1rem;
+
+}
+
+
+
+.actions button {
+
+  background: none;
+
+  border: none;
+
+  color: white;
+
+
+  cursor: pointer;
+
+  font-size: 1.2rem;
+
+}
