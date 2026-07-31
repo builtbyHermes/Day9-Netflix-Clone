@@ -1,30 +1,20 @@
-import { useEffect } from "react";
-import { getTrendingMovies } from "../../../api/movieService";
-
+import useHomeMovies from "../hooks/useHomeMovies";
+import MovieCard from "../components/MovieCard";
 
 function Home() {
+  const {
+    trendingMovies,
+    loading,
+    error,
+  } = useHomeMovies();
 
-  useEffect(() => {
+  if (loading) return <p>Loading...</p>;
 
-    async function fetchMovies(){
-
-      const movies = await getTrendingMovies();
-
-      console.log(movies);
-
-    }
-
-    fetchMovies();
-
-  }, []);
-
+  if (error) return <p>{error}</p>;
 
   return (
-    <h1>
-      Home Page
-    </h1>
+    <MovieCard movie={trendingMovies[0]} />
   );
 }
-
 
 export default Home;

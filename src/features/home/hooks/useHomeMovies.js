@@ -1,19 +1,62 @@
-function useHomeMovies(){
+import { useEffect, useState } from "react";
 
-  const [trendingMovies,setTrendingMovies] = useState([]);
+import {
+  getTrendingMovies,
+  getPopularMovies,
+  getTopRatedMovies,
+} from "../../../api/movieService";
 
-  const [loading,setLoading] = useState(true);
+
+function useHomeMovies() {
+
+  const [trendingMovies, setTrendingMovies] = useState([]);
+  const [popularMovies, setPopularMovies] = useState([]);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
+
+  const [loading, setLoading] = useState(true);
+
+  const [error, setError] = useState(null);
 
 
-  useEffect(()=>{
 
-    async function fetchMovies(){
+  useEffect(() => {
 
-      const movies = await getTrendingMovies();
+    async function fetchMovies() {
 
-      setTrendingMovies(movies);
+      try {
 
-      setLoading(false);
+        setLoading(true);
+        setError(null);
+
+
+        const [
+          trending,
+          popular,
+          topRated
+
+        ] = await Promise.all([
+          getTrendingMovies(),
+          getPopularMovies(),
+          getTopRatedMovies(),
+        ]);
+
+
+        setTrendingMovies(trending);
+        setPopularMovies(popular);
+        setTopRatedMovies(topRated);
+
+
+      } catch (err) {
+
+        setError(
+          err.message || "Something went wrong"
+        );
+
+      } finally {
+
+        setLoading(false);
+
+      }
 
     }
 
@@ -21,13 +64,20 @@ function useHomeMovies(){
     fetchMovies();
 
 
-  },[]);
+  }, []);
 
 
 
   return {
     trendingMovies,
-    loading
+    popularMovies,
+    topRatedMovies,
+
+    loading,
+    error,
   };
 
 }
+
+
+export default useHomeMovies;
