@@ -1,68 +1,60 @@
-.card {
+.link {
+
   flex: 0 0 auto;
 
-  width: 180px;
+  text-decoration: none;
 
-  cursor: pointer;
-
-  transition: transform 0.3s ease;
 }
 
 
-.card:hover {
-  transform: scale(1.08);
-}
 
+.card {
 
-.poster {
-  width: 100%;
+  width: 250px;
 
-  height: 270px;
-
-  object-fit: cover;
-
-  border-radius: 8px;
-}
-
-
-.info {
-  margin-top: 0.5rem;
-}
-
-
-.info h3 {
-  font-size: 0.9rem;
-
-  white-space: nowrap;
+  height: 375px;
 
   overflow: hidden;
 
-  text-overflow: ellipsis;
-}
-
-
-.info span {
-  font-size: 0.8rem;
-}
-
-.posterWrapper {
-  position: relative;
-}
-
-.card {
+  border-radius: 12px;
 
   cursor: pointer;
 
+  position: relative;
+
+  background: #111;
+
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    transform .35s ease,
+    box-shadow .35s ease;
 
 }
 
+
+
+.poster {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+}
+
+
+
 .card:hover {
 
-  transform: scale(1.05);
+  transform:
+    scale(1.08)
+    translateY(-8px);
 
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  box-shadow:
+    0 24px 48px rgba(0,0,0,.6);
+
+  z-index: 20;
 
 }

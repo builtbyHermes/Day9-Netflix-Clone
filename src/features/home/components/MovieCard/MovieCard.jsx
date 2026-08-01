@@ -1,35 +1,31 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import styles from "./MovieCard.module.css";
 
 function MovieCard({ movie }) {
 
-  const navigate = useNavigate();
+  const imageUrl =
+    `${import.meta.env.VITE_TMDB_IMAGE_URL}/w500${movie.poster_path}`;
 
   return (
 
-    <article
-      className={styles.card}
-      onClick={() => navigate(`/movies/${movie.id}`)}
+    <Link
+      to={`/movies/${movie.id}`}
+      className={styles.link}
     >
 
-      <img
-        className={styles.poster}
-        src={`${import.meta.env.VITE_TMDB_IMAGE_URL}/w500${movie.poster_path}`}
-        alt={movie.title}
-      />
+      <article className={styles.card}>
 
-      <div className={styles.info}>
+        <img
+          className={styles.poster}
+          src={imageUrl}
+          alt={movie.title}
+          loading="lazy"
+        />
 
-        <h3>{movie.title}</h3>
+      </article>
 
-        <span>
-          ⭐ {movie.vote_average.toFixed(1)}
-        </span>
-
-      </div>
-
-    </article>
+    </Link>
 
   );
 
