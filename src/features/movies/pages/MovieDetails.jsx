@@ -1,51 +1,30 @@
 import { useParams } from "react-router-dom";
 import useMovieDetails from "../hooks/useMovieDetails";
-
+import MovieHero from "../components/MovieHero/MovieHero";
+import MovieInfo from "../components/MovieInfo/MovieInfo";
+import MovieTrailer from "../components/MovieTrailer/MovieTrailer";
+import CastList from "../components/CastList/CastList";
 
 function MovieDetails() {
-
   const { id } = useParams();
 
+  const { movie, loading, error } = useMovieDetails(id);
 
-  const {
-    movie,
-    loading,
-    error
-  } = useMovieDetails(id);
+  if (loading) return <p>Loading...</p>;
 
-
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-
-  if (error) {
-    return <p>{error}</p>;
-  }
-
-
-  if (!movie) {
-    return null;
-  }
-
-
+  if (error) return <p>{error}</p>;
 
   return (
-    <div>
+    <>
+      <MovieHero movie={movie} />
 
-      <h1>
-        {movie.title}
-      </h1>
+      <MovieInfo movie={movie} />
 
+      <MovieTrailer movieId={movie.id} />
 
-      <p>
-        {movie.overview}
-      </p>
-
-    </div>
+      <CastList movieId={movie.id} />
+    </>
   );
 }
-
 
 export default MovieDetails;

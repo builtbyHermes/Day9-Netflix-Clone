@@ -69,7 +69,7 @@ export const getMovieCredits = async (id) => {
     endpoints.movieCredits(id)
   );
 
-  return response.data;
+  return response.data.cast;
 };
 
 

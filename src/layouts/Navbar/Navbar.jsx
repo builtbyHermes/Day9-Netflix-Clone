@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
 import styles from "./Navbar.module.css";
 
 
 function Navbar() {
+
+  const navigate = useNavigate();
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -50,26 +54,37 @@ function Navbar() {
       </div>
 
 
+
       <div className={styles.links}>
 
-        <a href="/">
+        <Link to="/">
           Home
-        </a>
+        </Link>
 
-        <a href="/">
+
+        <Link to="/">
           Movies
-        </a>
+        </Link>
 
-        <a href="/">
+
+        <Link to="/">
           TV Shows
-        </a>
+        </Link>
+
+
+        <Link to="/favorites">
+          My List
+        </Link>
 
       </div>
 
 
+
       <div className={styles.actions}>
 
-        <button>
+        <button
+          onClick={() => navigate("/search")}
+        >
           🔍
         </button>
 
@@ -84,6 +99,7 @@ function Navbar() {
     </nav>
 
   );
+
 }
 
 

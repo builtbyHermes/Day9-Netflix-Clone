@@ -54,6 +54,10 @@ body {
   margin: 0;
 }
 
+.page-content {
+  padding-top: 80px;
+}
+
 #root {
   width: 1126px;
   max-width: 100%;
