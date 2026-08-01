@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+import ProfileMenu from "../ProfileMenu";
+
 import styles from "./Navbar.module.css";
 
 
@@ -9,17 +11,14 @@ function Navbar() {
   const navigate = useNavigate();
 
   const [scrolled, setScrolled] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
 
 
   useEffect(() => {
 
     function handleScroll() {
 
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
 
     }
 
@@ -31,10 +30,12 @@ function Navbar() {
 
 
     return () => {
+
       window.removeEventListener(
         "scroll",
         handleScroll
       );
+
     };
 
   }, []);
@@ -48,6 +49,7 @@ function Navbar() {
         scrolled ? styles.scrolled : ""
       }`}
     >
+
 
       <div className={styles.logo}>
         NETFLIX
@@ -80,20 +82,45 @@ function Navbar() {
 
 
 
+
       <div className={styles.actions}>
+
 
         <button
           onClick={() => navigate("/search")}
+          className={styles.iconButton}
         >
           🔍
         </button>
 
 
-        <button>
-          👤
-        </button>
+
+        <div className={styles.profile}>
+
+
+          <button
+            onClick={() =>
+              setShowProfile((prev) => !prev)
+            }
+            className={styles.iconButton}
+          >
+            👤
+          </button>
+
+
+
+          {
+            showProfile && (
+              <ProfileMenu />
+            )
+          }
+
+
+        </div>
+
 
       </div>
+
 
 
     </nav>

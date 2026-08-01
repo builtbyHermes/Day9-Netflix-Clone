@@ -1,0 +1,55 @@
+.menu {
+
+  position: absolute;
+
+  top: 45px;
+
+  right: 0;
+
+  width: 160px;
+
+  background: #141414;
+
+  border: 1px solid #333;
+
+  border-radius: 4px;
+
+  padding: 10px 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  z-index: 1100;
+
+}
+
+
+.menu a,
+.menu button {
+
+  padding: 12px 20px;
+
+  background: none;
+
+  border: none;
+
+  color: white;
+
+  text-decoration: none;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+}
+
+
+.menu a:hover,
+.menu button:hover {
+
+  background: #333;
+
+}

@@ -1,6 +1,7 @@
 import useHomeMovies from "../hooks/useHomeMovies";
 import MovieRow from "../components/MovieRow/MovieRow";
 import HeroBanner from "../components/HeroBanner/HeroBanner";
+import SkeletonCard from "../../../components/Skeleton/SkeletonCard";
 
 function Home() {
   const {
@@ -23,20 +24,23 @@ function Home() {
       <MovieRow
         title="Trending Now"
         movies={trendingMovies}
+        loading={loading}
       />
 
       <MovieRow
         title="Popular"
         movies={popularMovies}
+        loading={loading}
       />
 
       <MovieRow
         title="Top Rated"
         movies={topRatedMovies}
+        loading={loading}
       />
 
       
-
+     <SkeletonCard/>
   </>
   );
 }

@@ -21,7 +21,7 @@ function AppRoutes() {
         />
 
         <Route
-          path="/movie/:id"
+          path="/movies/:id"
           element={<MovieDetails />}
         />
 
