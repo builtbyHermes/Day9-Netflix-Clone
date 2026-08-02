@@ -129,3 +129,145 @@
   background: rgba(0,0,0,.65);
 
 }
+
+.row {
+
+  animation: fadeIn .45s ease;
+
+}
+
+@keyframes fadeIn {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(12px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+
+
+
+@media(max-width:900px){
+
+
+  .title {
+
+
+    margin-left:2rem;
+
+
+    font-size:1.5rem;
+
+
+  }
+
+
+
+
+  .container {
+
+
+    padding:
+
+      1rem
+
+      2rem
+
+      2rem;
+
+
+    gap:1rem;
+
+
+  }
+
+
+
+}
+
+@media(max-width:600px){
+
+  .row {
+
+    margin-bottom:3rem;
+
+  }
+
+
+
+  .title {
+
+
+    margin-left:1rem;
+
+
+    margin-bottom:1rem;
+
+
+    font-size:1.25rem;
+
+
+  }
+
+
+
+  .container {
+
+
+    padding:
+
+      .5rem
+
+      1rem
+
+      1.5rem;
+
+
+
+    gap:.8rem;
+
+
+  }
+
+
+}
+
+
+@media(max-width:390px){
+
+
+  .title {
+
+
+    font-size:1.1rem;
+
+
+  }
+
+
+}
+
+
+@media(max-width:768px){
+
+
+  .arrow {
+
+    display:none;
+
+  }
+
+
+}

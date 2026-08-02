@@ -5,66 +5,102 @@ import useSearch from "../hooks/useSearch";
 import SearchInput from "../components/SearchInput";
 import SearchResults from "../components/SearchResults";
 
+import styles from "./Search.module.css";
+
 
 function Search() {
 
+
   const [query, setQuery] = useState("");
+
+
 
   const {
     results,
     loading,
     error
+
   } = useSearch(query);
 
 
+
+
   return (
-    <section>
 
-      <h1>
-        Search Movies
-      </h1>
+    <main className={styles.searchPage}>
 
 
-      <SearchInput
-        value={query}
-        onChange={setQuery}
-      />
+      <section className={styles.searchHeader}>
 
 
-      {
-        loading && (
-          <p>
-            Searching...
-          </p>
-        )
-      }
+        <h1>
+          Search Movies
+        </h1>
 
 
-      {
-        error && (
-          <p>
-            {error}
-          </p>
-        )
-      }
+
+        <SearchInput
+
+          value={query}
+
+          onChange={setQuery}
+
+        />
 
 
-      {
-        query && !loading && (
-          <p>
-            Found {results.length} movies
-          </p>
-        )
-      }
+        {
+          error && (
+
+            <p className={styles.error}>
+              {error}
+            </p>
+
+          )
+        }
 
 
-      <SearchResults
-        movies={results}
-      />
+
+        {
+          query &&
+          !loading &&
+          !error && (
+
+            <p className={styles.count}>
+
+              Found {results.length} movies
+
+            </p>
+
+          )
+        }
 
 
-    </section>
+
+      </section>
+
+
+
+
+
+      <section className={styles.results}>
+
+
+        <SearchResults
+
+          movies={results}
+          
+          loading={loading}
+        />
+
+
+      </section>
+
+
+
+    </main>
+
   );
+
 }
 
 

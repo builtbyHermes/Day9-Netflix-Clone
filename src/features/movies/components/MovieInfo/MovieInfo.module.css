@@ -1,0 +1,382 @@
+.info {
+
+  background:#000;
+
+  color:white;
+
+  padding:
+
+    5rem 4rem;
+
+}
+
+
+
+
+.container {
+
+  max-width:1200px;
+
+  margin:0 auto;
+
+}
+
+
+
+
+
+
+
+/* Shared headings */
+
+.overviewSection h2,
+.factsSection h2,
+.productionSection h2 {
+
+
+  font-size:2.2rem;
+
+
+  font-weight:700;
+
+
+  margin-bottom:1.8rem;
+
+
+}
+
+
+
+
+
+
+
+/* Overview */
+
+
+.overviewSection {
+
+
+  margin-bottom:5rem;
+
+
+}
+
+
+
+.overviewSection p {
+
+
+  max-width:900px;
+
+
+  color:#c8c8c8;
+
+
+  font-size:1.15rem;
+
+
+  line-height:1.9;
+
+
+}
+
+
+
+
+
+
+
+/* Facts */
+
+
+.factsSection {
+
+
+  margin-bottom:5rem;
+
+
+}
+
+
+
+
+.fact {
+
+
+  max-width:750px;
+
+
+  display:flex;
+
+
+  justify-content:space-between;
+
+
+  align-items:center;
+
+
+
+  padding:
+
+    1.2rem 0;
+
+
+
+  border-bottom:
+
+    1px solid #333;
+
+
+}
+
+
+
+
+.fact span:first-child {
+
+
+  color:#888;
+
+
+  font-size:1rem;
+
+
+}
+
+
+
+.fact span:last-child {
+
+
+  color:white;
+
+
+  font-weight:600;
+
+
+}
+
+
+
+
+
+
+
+.fact:hover {
+
+
+  border-color:#666;
+
+
+}
+
+
+
+
+
+
+
+/* Production */
+
+
+
+.productionSection {
+
+
+  margin-bottom:3rem;
+
+
+}
+
+
+
+
+.productionSection ul {
+
+
+  list-style:none;
+
+
+  padding:0;
+
+
+  margin:0;
+
+
+
+  display:flex;
+
+
+  flex-wrap:wrap;
+
+
+  gap:1rem;
+
+
+}
+
+
+
+
+
+
+
+.productionSection li {
+
+
+  padding:
+
+    .7rem 1.2rem;
+
+
+
+  border-radius:20px;
+
+
+
+  background:#181818;
+
+
+
+  color:#ddd;
+
+
+
+  font-size:.95rem;
+
+
+
+  border:
+
+    1px solid #333;
+
+
+
+  transition:.25s ease;
+
+
+}
+
+
+
+
+
+.productionSection li:hover {
+
+
+  background:#262626;
+
+
+  transform:
+
+    translateY(-3px);
+
+
+}
+
+
+
+
+
+
+
+/* subtle section separation */
+
+
+.overviewSection,
+.factsSection {
+
+
+  position:relative;
+
+
+}
+
+
+
+
+
+
+/* Responsive */
+
+
+@media(max-width:900px){
+
+
+
+  .info {
+
+
+    padding:
+
+      4rem 2rem;
+
+
+  }
+
+
+
+
+  .overviewSection h2,
+  .factsSection h2,
+  .productionSection h2 {
+
+
+    font-size:1.7rem;
+
+
+  }
+
+
+
+}
+
+
+
+
+
+
+@media(max-width:600px){
+
+
+
+  .info {
+
+
+    padding:
+
+      3rem 1.2rem;
+
+
+  }
+
+
+
+
+  .fact {
+
+
+    flex-direction:column;
+
+
+    align-items:flex-start;
+
+
+    gap:.5rem;
+
+
+  }
+
+
+
+  .overviewSection p {
+
+
+    font-size:1rem;
+
+
+  }
+
+
+}

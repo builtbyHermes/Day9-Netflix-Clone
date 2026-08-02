@@ -1,41 +1,54 @@
 import useFavorites from "../hooks/useFavorites";
+
 import FavoritesGrid from "../components/FavoritesGrid";
+
+import styles from "./Favorites.module.css";
 
 
 function Favorites() {
 
-  const {
-    favorites
-  } = useFavorites();
-
-
-  console.log("Favorites page:", favorites);
-
+  const { favorites } = useFavorites();
 
   return (
-    <section>
 
-      <h1>
-        My List
-      </h1>
+    <section className={styles.page}>
 
+      <div className={styles.header}>
+
+      </div>
 
       {
         favorites.length === 0 ? (
-          <p>
-            No movies added yet.
-          </p>
+
+          <div className={styles.empty}>
+
+            <div className={styles.icon}>
+              ❤️
+            </div>
+
+            <h2>
+              Your List is Empty
+            </h2>
+
+            <p>
+              Save your favorite movies and they'll appear here.
+            </p>
+
+          </div>
+
         ) : (
+
           <FavoritesGrid
             movies={favorites}
           />
+
         )
       }
 
-
     </section>
-  );
-}
 
+  );
+
+}
 
 export default Favorites;

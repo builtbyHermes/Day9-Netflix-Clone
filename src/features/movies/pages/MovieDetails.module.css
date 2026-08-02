@@ -1,0 +1,40 @@
+.page {
+
+  background:#000;
+
+  min-height:100vh;
+
+  color:white;
+
+}
+
+
+
+.content {
+
+  padding:
+
+    2rem
+    4rem;
+
+}
+
+
+
+.status {
+
+  height:100vh;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  background:#000;
+
+  color:white;
+
+  font-size:1.5rem;
+
+}

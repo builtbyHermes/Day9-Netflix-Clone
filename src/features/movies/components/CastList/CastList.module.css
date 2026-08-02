@@ -1,0 +1,199 @@
+.castSection {
+
+  padding: 4rem 4rem;
+
+  background:#000;
+
+  color:white;
+
+}
+
+
+
+.castSection h2 {
+
+  font-size:2.2rem;
+
+  margin-bottom:3rem;
+
+  font-weight:700;
+
+}
+
+
+
+
+
+.castGrid {
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap:3rem 2rem;
+
+}
+
+
+
+
+
+.castCard {
+
+  overflow:hidden;
+
+  transition:
+    transform .3s ease;
+
+}
+
+
+
+.castCard:hover {
+
+  transform:translateY(-8px);
+
+}
+
+
+
+
+
+.image {
+
+  width:100%;
+
+  height:420px;
+
+  object-fit:cover;
+
+  border-radius:12px;
+
+  display:block;
+
+}
+
+
+
+
+
+.castCard h4 {
+
+
+  margin-top:1.2rem;
+
+
+  font-size:1.25rem;
+
+
+  font-weight:700;
+
+
+  color:white;
+
+
+}
+
+
+
+
+
+.castCard p {
+
+
+  margin-top:.4rem;
+
+
+  color:#aaa;
+
+
+  font-size:1rem;
+
+
+}
+
+
+
+
+
+.status {
+
+  padding:3rem;
+
+  color:#aaa;
+
+}
+
+
+
+
+
+@media(max-width:1200px){
+
+
+  .castGrid {
+
+    grid-template-columns:
+      repeat(3,1fr);
+
+  }
+
+
+}
+
+
+
+
+@media(max-width:800px){
+
+
+  .castSection {
+
+    padding:3rem 1.5rem;
+
+  }
+
+
+
+  .castGrid {
+
+    grid-template-columns:
+      repeat(2,1fr);
+
+    gap:2rem 1rem;
+
+  }
+
+
+
+  .image {
+
+    height:320px;
+
+  }
+
+
+}
+
+
+
+@media(max-width:500px){
+
+
+  .castGrid {
+
+    grid-template-columns:
+      repeat(1,1fr);
+
+  }
+
+
+  .image {
+
+    height:420px;
+
+  }
+
+
+}

@@ -1,6 +1,6 @@
 import MovieCard from "../../home/components/MovieCard/MovieCard";
 import SkeletonCard from "../../../components/Skeleton/SkeletonCard";
-
+import React from "react";
 import styles from "./SearchResults.module.css";
 
 
@@ -111,4 +111,4 @@ function SearchResults({
 }
 
 
-export default SearchResults;
+export default React.memo(SearchResults);

@@ -1,46 +1,98 @@
-import { Routes, Route } from "react-router-dom";
+import {
+  Routes,
+  Route
+} from "react-router-dom";
+
+
+import {
+  lazy,
+  Suspense
+} from "react";
+
 
 import MainLayout from "../layouts/MainLayout";
 
-import Home from "../features/home/pages/Home";
-import MovieDetails from "../features/movies/pages/MovieDetails";
-import Search from "../features/search/pages/Search";
-import Favorites from "../features/favorites/pages/Favorites";
+
+
+const Home = lazy(
+  () => import("../features/home/pages/Home")
+);
+
+
+const MovieDetails = lazy(
+  () => import("../features/movies/pages/MovieDetails")
+);
+
+
+const Search = lazy(
+  () => import("../features/search/pages/Search")
+);
+
+
+const Favorites = lazy(
+  () => import("../features/favorites/pages/Favorites")
+);
+
 
 
 function AppRoutes() {
-  return (
-
-    <Routes>
-
-      <Route element={<MainLayout />}>
-
-        <Route
-          path="/"
-          element={<Home />}
-        />
-
-        <Route
-          path="/movies/:id"
-          element={<MovieDetails />}
-        />
-
-        <Route
-          path="/search"
-          element={<Search />}
-        />
-
-        <Route
-          path="/favorites"
-          element={<Favorites />}
-        />
-
-      </Route>
 
 
-    </Routes>
+return (
 
-  );
+<Suspense
+
+ fallback={
+   <p>
+     Loading page...
+   </p>
+ }
+
+>
+
+
+<Routes>
+
+
+<Route element={<MainLayout />}>
+
+
+<Route
+path="/"
+element={<Home />}
+/>
+
+
+<Route
+path="/movies/:id"
+element={<MovieDetails />}
+/>
+
+
+<Route
+path="/search"
+element={<Search />}
+/>
+
+
+<Route
+path="/favorites"
+element={<Favorites />}
+/>
+
+
+</Route>
+
+
+</Routes>
+
+
+</Suspense>
+
+);
+
+
 }
+
 
 export default AppRoutes;

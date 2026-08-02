@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import MovieCard from "../MovieCard/MovieCard";
 import SkeletonCard from "../../../../components/Skeleton/SkeletonCard";
-
 import styles from "./MovieRow.module.css";
 
 function MovieRow({
@@ -71,25 +70,31 @@ function MovieRow({
 
 
 
-  function scrollLeft() {
+  const scrollLeft = useCallback(() => {
 
-    containerRef.current?.scrollBy({
-      left: -1000,
-      behavior: "smooth",
-    });
+  containerRef.current?.scrollBy({
 
-  }
+    left:-1000,
+
+    behavior:"smooth",
+
+  });
+
+}, []);
 
 
 
-  function scrollRight() {
+     const scrollRight = useCallback(() => {
 
-    containerRef.current?.scrollBy({
-      left: 1000,
-      behavior: "smooth",
-    });
+        containerRef.current?.scrollBy({
 
-  }
+          left:1000,
+
+          behavior:"smooth",
+
+        });
+
+      }, []);
 
 
 
@@ -169,4 +174,4 @@ function MovieRow({
 
 }
 
-export default MovieRow;
+export default React.memo(MovieRow);

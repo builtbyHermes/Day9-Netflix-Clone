@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
-import { searchMovies } from "../../../api/movieService";
+import { useCallback, useEffect, useState } from "react";
+
+import searchService from "../services/searchService";
 
 
 function useSearch(query) {
+
 
   const [results, setResults] = useState([]);
 
@@ -12,59 +14,81 @@ function useSearch(query) {
 
 
 
-  useEffect(() => {
+  const searchMovies = useCallback(async () => {
+
 
     if (!query.trim()) {
+
       setResults([]);
+
       return;
+
     }
 
 
-    const timer = setTimeout(async () => {
 
-      try {
-
-        setLoading(true);
-
-        setError(null);
+    try {
 
 
-        const movies = await searchMovies(query);
+      setLoading(true);
 
-        setResults(movies);
-
-
-      } catch (err) {
-
-        setError(
-          "Failed to search movies."
-        );
-
-      } finally {
-
-        setLoading(false);
-
-      }
-
-
-    }, 500);
+      setError(null);
 
 
 
-    return () => {
-      clearTimeout(timer);
-    };
+      const data = await searchService.searchMovies(query);
+
+
+
+      setResults(data.results || []);
+
+
+
+    } catch (err) {
+
+
+      setError(
+        err.message || "Something went wrong"
+      );
+
+
+    } finally {
+
+
+      setLoading(false);
+
+
+    }
 
 
   }, [query]);
 
 
 
+
+
+  useEffect(() => {
+
+
+    searchMovies();
+
+
+  }, [searchMovies]);
+
+
+
+
+
   return {
+
     results,
+
     loading,
+
     error
+
   };
+
 
 }
 
