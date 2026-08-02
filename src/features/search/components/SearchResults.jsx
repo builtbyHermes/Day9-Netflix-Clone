@@ -1,36 +1,113 @@
 import MovieCard from "../../home/components/MovieCard/MovieCard";
+import SkeletonCard from "../../../components/Skeleton/SkeletonCard";
+
 import styles from "./SearchResults.module.css";
 
 
 function SearchResults({
-  movies
+  movies,
+  loading
 }) {
 
-  if (!movies || movies.length === 0) {
+
+
+  if (loading) {
+
+
     return (
-      <p>
-        No movies found.
-      </p>
+
+      <section className={styles.container}>
+
+        <div className={styles.grid}>
+
+          {
+            Array.from({
+              length: 12
+            }).map((_, index) => (
+
+              <SkeletonCard
+
+                key={index}
+
+              />
+
+            ))
+          }
+
+
+        </div>
+
+
+      </section>
+
     );
+
+
   }
 
 
-  return (
-    <section className={styles.container}>
 
-      <div className={styles.grid}>
 
-        {movies.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            movie={movie}
-          />
-        ))}
+
+  if (!movies || movies.length === 0) {
+
+
+    return (
+
+      <div className={styles.empty}>
+
+
+        <h2>
+          No movies found
+        </h2>
+
+
+        <p>
+          Try searching for another movie title.
+        </p>
+
 
       </div>
 
+    );
+
+  }
+
+
+
+
+
+
+  return (
+
+    <section className={styles.container}>
+
+
+      <div className={styles.grid}>
+
+
+        {
+          movies.map((movie) => (
+
+            <MovieCard
+
+              key={movie.id}
+
+              movie={movie}
+
+            />
+
+          ))
+        }
+
+
+      </div>
+
+
     </section>
+
   );
+
 }
 
 
